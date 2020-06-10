@@ -35,7 +35,7 @@ publishing {
         }
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/gianluz/danger-kotlin-android-lint-plugin")
+            url = uri("https://maven.pkg.github.com/gianluz/danger-kotlin-slackalo-plugin")
             credentials {
                 username = loadSecret("GITHUB_PACKAGES_USERNAME")
                 password = loadSecret("GITHUB_PACKAGES_PASSWORD")
@@ -56,12 +56,12 @@ publishing {
             }
             pom {
                 name = 'Danger Kotlin - Android Lint Plugin'
-                description = 'A plugin for Danger Kotlin for Android Lint'
-                url = "https://github.com/gianluz/danger-kotlin-android-lint-plugin"
+                description = 'A plugin for Danger Kotlin that enables to send messages via Slackalo'
+                url = "https://github.com/gianluz/danger-kotlin-slackalo-plugin"
                 licenses {
                     license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'https://github.com/gianluz/danger-kotlin-android-lint-plugin/blob/master/LICENSE'
+                        name = 'MIT Licence'
+                        url = 'https://github.com/gianluz/danger-kotlin-slackalo-plugin/blob/master/LICENSE'
                     }
                 }
                 developers {
@@ -72,9 +72,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/gianluz/danger-kotlin-android-lint-plugin.git'
-                    developerConnection = 'scm:git:ssh://github.com/gianluz/danger-kotlin-android-lint-plugin.git'
-                    url = 'https://github.com/gianluz/danger-kotlin-android-lint-plugin'
+                    connection = 'scm:git:git://github.com/gianluz/danger-kotlin-slackalo-plugin.git'
+                    developerConnection = 'scm:git:ssh://github.com/gianluz/danger-kotlin-slackalo-plugin.git'
+                    url = 'https://github.com/gianluz/danger-kotlin-slackalo-plugin'
                 }
             }
         }

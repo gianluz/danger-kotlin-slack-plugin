@@ -8,9 +8,10 @@ object Slackalo : DangerPlugin() {
     override val id: String
         get() = this.javaClass.name
 
+    private val webHookClient by lazy { DefaultWebHookClient() }
+
     fun sendReport(report: Report.() -> Unit) {
         with(Report().apply(report)) {
-            val webHookClient = DefaultWebHookClient()
             val message = slackMessage {
                 blocks {
                     imageMarkdown(
@@ -27,7 +28,8 @@ object Slackalo : DangerPlugin() {
                         markdown(":x: *Failures*")
                         fields {
                             context.fails.forEach { violation ->
-                                markdown(violation.message + (violation.file?.let { " - file `$it`" }?:"") + (violation.line?.let { " line: `$it`" }?:""))
+                                markdown(violation.message + (violation.file?.let { " - file `$it`" }
+                                    ?: "") + (violation.line?.let { " line: `$it`" } ?: ""))
                             }
                         }
                     }
@@ -35,7 +37,8 @@ object Slackalo : DangerPlugin() {
                         markdown(":warning: *Warnings*")
                         fields {
                             context.warnings.forEach { violation ->
-                                markdown(violation.message + (violation.file?.let { " - file `$it`" }?:"") + (violation.line?.let { " line: `$it`" }?:""))
+                                markdown(violation.message + (violation.file?.let { " - file `$it`" }
+                                    ?: "") + (violation.line?.let { " line: `$it`" } ?: ""))
                             }
                         }
                     }
@@ -44,7 +47,8 @@ object Slackalo : DangerPlugin() {
                         markdown(":email: *Messages:*")
                         fields {
                             context.messages.forEach { violation ->
-                                markdown(violation.message + (violation.file?.let { " - file `$it`" }?:"") + (violation.line?.let { " line: `$it`" }?:""))
+                                markdown(violation.message + (violation.file?.let { " - file `$it`" }
+                                    ?: "") + (violation.line?.let { " line: `$it`" } ?: ""))
                             }
                         }
                     }
@@ -52,8 +56,8 @@ object Slackalo : DangerPlugin() {
             }
 
             val response = webHookClient.sendWebHook(slackWebHookUrl, message)
-            if(response.statusCode!=200) {
-                context.warn("Danger Kotlin Slackalo plugin failed to send the report to slack")
+            if (response.statusCode != 200) {
+                context.warn("Danger Kotlin Slackalo plugin failed to send the report via slack")
             }
         }
     }
