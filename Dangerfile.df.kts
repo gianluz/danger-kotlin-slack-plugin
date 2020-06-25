@@ -1,4 +1,5 @@
-@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.1")
+@file:Repository("https://jcenter.bintray.com/")
+@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.2")
 
 import com.gianluz.dangerkotlin.slackalo.Slackalo
 import systems.danger.kotlin.*
