@@ -10,6 +10,4 @@ jobs:
         - bash <(curl -s https://raw.githubusercontent.com/danger/kotlin/master/scripts/install.sh)
         - source ~/.bash_profile
       script:
-        - ./gradlew build
-        - ./gradlew shadowJar
         - DEBUG='*' danger-kotlin ci
