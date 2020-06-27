@@ -10,7 +10,7 @@ A plugin for Danger Kotlin that enables to send messages via [Slackalo](https://
 
 Install and run [Danger Kotlin] as normal and in your `Dangerfile.df.kts` add the following dependency:
 ```kotlin
-@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.1")
+@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.3")
 ```
 Then register your plugin before the `danger` initialisation and use the plugin:
 ```kotlin

@@ -55,8 +55,8 @@ object Slackalo : DangerPlugin() {
                 }
             }
 
-            val response = webHookClient.sendWebHook(slackWebHookUrl, message)
-            if (response.statusCode != 200) {
+            val statusCode = webHookClient.sendWebHook(slackWebHookUrl, message)
+            if (statusCode.value != 200) {
                 context.warn("Danger Kotlin Slackalo plugin failed to send the report via slack")
             }
         }

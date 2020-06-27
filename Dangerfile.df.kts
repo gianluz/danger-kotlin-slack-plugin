@@ -1,4 +1,4 @@
-@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.1")
+@file:DependsOn("com.gianluz:danger-kotlin-slackalo-plugin:0.0.3")
 
 import com.gianluz.dangerkotlin.slackalo.Slackalo
 import systems.danger.kotlin.*
